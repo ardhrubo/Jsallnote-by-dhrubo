@@ -562,26 +562,31 @@ p1.print()
 
 
 
-const _radius = Symbol()
+const _radius = new WeakMap()
 
-const _name = Symbol()
+const _name = new WeakMap()
 
-const _draw = Symbol()
+const _resize = new WeakMap()
 
 class Circle{
     constructor(radius,name){
-        this[_radius] = radius 
-        this[_name] = name
+        this.size = 100
+        _radius.set(this,radius)
+        _name.set(this,name)
+        _resize.set(this, () =>{
+            console.log(this.size)
+        })
     }
-    [_draw](){
+    draw(){
         console.log('Drawing...')
+        console.log(_radius.get(this),_name.get(this))
+        _resize.get(this)()
     }
 }
 
 
 
 let c1 = new Circle(2,'Red')
-
-console.log(c1)
+c1.draw()
 
 
