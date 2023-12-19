@@ -601,32 +601,10 @@ class Circle{
 
 
 
-class Shape{
-    constructor(color){
-     this.color = color 
-    }
-    draw(){
-        console.log('Drawing...')
-
-    }
-}
 
 
-class Rectangle extends Shape {
-    constructor(color,width,height){
-        super(color)
-        this.width = width
-        this.height = height
-    }
-    draw(){
-        console.log('Drawing a rectangle...')
-    }
 
-    calculate(){
-        return this.width * this.height
-    }
-
-}
+import Rectangle from "./Rectangle"
 
 let r = new Rectangle('blue',4,5)
 r.draw()
