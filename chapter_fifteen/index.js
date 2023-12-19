@@ -577,6 +577,14 @@ class Circle{
             console.log(this.size)
         })
     }
+    get Radius(){
+        return _radius.get(this)
+    }
+
+    set Radius(v){
+        _radius.set(this,v)
+    }
+
     draw(){
         console.log('Drawing...')
         console.log(_radius.get(this),_name.get(this))
@@ -586,8 +594,43 @@ class Circle{
 
 
 
-let c1 = new Circle(2,'Red')
-c1.draw()
+// let c1 = new Circle(2,'Red')
+// c1.draw()
+// c1.Radius = 100;
+// console.log(c1.Radius)
+
+
+
+class Shape{
+    constructor(color){
+     this.color = color 
+    }
+    draw(){
+        console.log('Drawing...')
+
+    }
+}
+
+
+class Rectangle extends Shape {
+    constructor(color,width,height){
+        super(color)
+        this.width = width
+        this.height = height
+    }
+    draw(){
+        console.log('Drawing a rectangle...')
+    }
+
+    calculate(){
+        return this.width * this.height
+    }
+
+}
+
+let r = new Rectangle('blue',4,5)
+r.draw()
+
 
 
 
