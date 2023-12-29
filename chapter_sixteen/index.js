@@ -23,4 +23,19 @@ function changeToInt(v){
 
 let result = changeToInt(5)
 
-console.log(result)
+
+function makeWords(text){
+   
+    try{
+        let str = text.trim()
+        let words = str.split(' ')
+        return words
+    }catch(e){
+        return 'Provide a text'
+    }
+   
+}
+
+let word = makeWords('fhjfhj')
+
+console.log(word)
