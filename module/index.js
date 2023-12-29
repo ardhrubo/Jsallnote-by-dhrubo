@@ -1,8 +1,9 @@
 
-// import Rectangle from "./Rectangle"
+import Rectangle from "./Rectangle.js"
 
-// let r = new Rectangle('blue',4,5)
+let r = new Rectangle('blue',4,5)
 
-// r.draw()
+console.log(r)
 
-console.log('a')
+r.draw()
+

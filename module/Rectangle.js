@@ -1,4 +1,4 @@
-import Shape from "./Shape"
+import Shape from "./Shape.js"
 class Rectangle extends Shape {
     constructor(color,width,height){
         super(color)
@@ -14,6 +14,8 @@ class Rectangle extends Shape {
     }
 
 }
+
+
 
 export default Rectangle
 
