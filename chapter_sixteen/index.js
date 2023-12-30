@@ -36,8 +36,33 @@ function makeWords(text){
    
 }
 
-let word = makeWords('fhjfhj')
 
-console.log(word)
+class CustomError extends Error{
+    constructor(msg){
+        super(msg)
+        if(Error.captureStackTrace){
+
+            Error.captureStackTrace(this,CustomError)
+
+        }
+    }
+}
+
+
+
+try{
+    console.log('I am line one')
+    throw new CustomError('Error')
+    console.log('I am matah')
+}
+catch(e){
+    console.dir(e)
+
+    console.log('This is custom error message')
+} finally {
+    console.log('I am finally block')
+}
+
+
 
 
