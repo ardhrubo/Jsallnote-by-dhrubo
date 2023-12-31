@@ -7,6 +7,6 @@
 
 
 
-console.log(1)
+
 
 
