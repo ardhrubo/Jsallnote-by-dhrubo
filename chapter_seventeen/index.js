@@ -1,5 +1,5 @@
 // Asynchronous Programming
 
-import './lessons/lesson2.js'
+import './lessons/lesson1.js'
 
 
