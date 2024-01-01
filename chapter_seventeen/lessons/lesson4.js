@@ -29,16 +29,13 @@ function getRequest(url,callback){
         if (xhr.readyState===4){
             if(xhr.status ===200){
                 let response = JSON.parse(xhr.response)
-                callback(null,response)
-
-                
+                callback(null,response)   
             } else{
                 callback(xhr.response,null)
             }
         }
     }
     xhr.send()
-
 }
 
 getRequest('https://jsonplaceholder.typicode.com/users',(err,res)=>{
