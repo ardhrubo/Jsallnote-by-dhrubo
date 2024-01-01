@@ -19,6 +19,7 @@ xhr.send()
 
 
 
+
 function getRequest(url,callback){
     const xhr = new XMLHttpRequest()
 
@@ -32,13 +33,18 @@ function getRequest(url,callback){
 
                 
             } else{
-                console.log(xhr.status)
+                callback(xhr.response,null)
             }
         }
     }
 
 }
 
-
-
+getRequest('https://jsonplaceholder.typicode.com/users',(err,res)=>{
+    if(err){
+        console.log(err)
+    } else{
+        console.log(res)
+    }
+})
 
