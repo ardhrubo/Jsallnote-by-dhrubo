@@ -29,10 +29,17 @@ getRequest(`${BASE_URL}/posts/1`,(err,res) => {
         if(err){
             throw new Error('Error Occured')
         }
-        getRequest(`${BASE_URL}/posts/1/comments`)
+        getRequest(`${BASE_URL}/posts/1/comments/${res.id}`, ()=>{
+            if(err){
+                throw new Error('Error occurred')
+            }
+
+            console.log(res)
+        })
     })
     
 })
+
 
 
 
