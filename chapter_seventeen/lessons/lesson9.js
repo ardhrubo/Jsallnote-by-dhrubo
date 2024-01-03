@@ -16,11 +16,14 @@
 // test().then(v=> console.log(v))
 
 
-let p1 = Promise.resolve('I am a promise')
+let p1 = new Promise(resolve => {
+    setTimeout(resolve,5000,'Test value')
+})
 
 async function myAsyncFunc(){
     // p1.then(v=>alert(v))
     let v = await p1
+    console.log(v)
 
 }
 
