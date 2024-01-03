@@ -27,8 +27,21 @@ async function myAsyncFunc(){
 
 }
 
-myAsyncFunc()
 
+async function fetchData(){
 
+    try{
+        let res = await fetch('https://jsonplaceholder.typicode.com/usesrs')
+        let data = await res.json()
+    
+        let names = data.map(u=>u.name)
+    
+        console.log(names)
+    }catch(e){
+        console.log(e.message)
+    }
 
+}
+
+fetchData()
 
