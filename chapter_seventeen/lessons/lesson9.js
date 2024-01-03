@@ -9,10 +9,23 @@
 // console.log(myPromise())
 
 
-async function test(){
-    return 'test'
+// async function test(){
+//     return 'test'
+// }
+
+// test().then(v=> console.log(v))
+
+
+let p1 = Promise.resolve('I am a promise')
+
+async function myAsyncFunc(){
+    // p1.then(v=>alert(v))
+    let v = await p1
+
 }
 
-test().then(v=> alert(v))
+myAsyncFunc()
+
+
 
 
