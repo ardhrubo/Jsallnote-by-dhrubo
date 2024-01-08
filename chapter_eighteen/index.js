@@ -1,2 +1,2 @@
-import './dom/lesson9.js';
+import './dom/lesson10.js';
 
