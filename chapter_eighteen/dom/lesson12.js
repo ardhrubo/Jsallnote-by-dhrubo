@@ -1,19 +1,41 @@
-// Import the readline module. This will be used to read the input.
+let test = 'abcA12333'
+function count(test){
+let num = test.match( /[0-9]/g).length
+let text = test.match(/[a-z]/).length
+ return num + ' ' + text
+}
+
+let x = count(test)
+
+console.log(x)
+
+
+// Required library for handling console input/output
 const readline = require('readline');
 
-// Create a readline interface instance.
+// Using the readline library to create interface for console input/output
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-// This function will receive a string and convert it to camel case
-function convertToCamelCase(string) {
-    return 
-}
+// This function will be called when the user provides input
+rl.on('line', (input) => {
+    // Count the number of letters and numbers in the input string
+    let letterCount = 0;
+    let numberCount = 0;
 
-// This is to capture the user input and provide it to your function.
-rl.question('Please enter a string: ', (answer) => {
-    console.log(convertToCamelCase(answer));
+    for (let i = 0; i < input.length; i++) {
+        if (/[a-zA-Z]/.test(input[i])) {
+            letterCount++;
+        } else if (/[0-9]/.test(input[i])) {
+            numberCount++;
+        }
+    }
+
+    // Print the counts separated by a space
+    console.log(`${letterCount} ${numberCount}`);
+
+    // Finally, close the interface for clean-up 
     rl.close();
 });
