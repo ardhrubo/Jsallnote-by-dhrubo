@@ -67,7 +67,7 @@ postForm.addEventListener('submit',function(e){
 
         } else{
             alert('Please Provide Every Details')
-        }
+        } 
 
 
 })
