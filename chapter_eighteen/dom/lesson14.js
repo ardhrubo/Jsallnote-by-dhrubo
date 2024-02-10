@@ -15,6 +15,7 @@ form.addEventListener('submit',function(e){
                 formData[el.name] = el.value
                
             } else{
+                el.classList.add('is-invalid')
                 alert(`${el.name} is required`)
             }
         }
