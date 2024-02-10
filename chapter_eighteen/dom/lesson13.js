@@ -54,6 +54,8 @@ list.addEventListener('dblclick',function(event){
         inputBox.addEventListener('keypress',function(e){
             if(e.key ==='Enter'){
                 event.target.innerHTML = e.target.value
+                console.dir(e)
+                console.dir(event)
             }
         })
     }
