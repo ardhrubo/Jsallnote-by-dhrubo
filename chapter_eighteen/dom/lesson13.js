@@ -37,10 +37,19 @@ function outputSkill(parent,skills){
         skills.forEach((skill,index)=>{
 
             result += `(${index +1}) ${skill}<br>`
-            
+
         })
 
         parent.innerHTML = result
 
 }
+
+let list = document.getElementById('list')
+list.addEventListener('dblclick',function(e){
+    if(this.contains(Event.target)){
+        let innerText = Event.target.value
+    }
+})
+
+
 
