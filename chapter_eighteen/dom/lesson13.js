@@ -35,7 +35,9 @@ function outputSkill(parent,skills){
         let result = ''
 
         skills.forEach((skill,index)=>{
+
             result += `(${index +1}) ${skill}<br>`
+            
         })
 
         parent.innerHTML = result

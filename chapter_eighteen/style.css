@@ -7,4 +7,15 @@
     width: 70%;
     display: block;
 }
+.list-group-item{
+    border: 1px solid;
+    padding: 15px;
+    
+}
+ul{
+    list-style-type: none;
+}
 
+#list{
+    box-shadow: 1px;
+}
