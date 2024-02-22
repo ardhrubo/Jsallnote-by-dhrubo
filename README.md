@@ -12,6 +12,10 @@ Once you have Node.js installed, you can verify the installation by running the 
 node --version
 npm --version
 ```
+Install npm
+```
+npm install
+```
 
 
 
