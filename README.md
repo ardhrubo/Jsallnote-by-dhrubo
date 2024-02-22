@@ -2,6 +2,19 @@
 
 This repository, `jsallnote`, contains comprehensive notes and code snippets for JavaScript. It's a valuable resource for anyone looking to learn or deepen their understanding of JavaScript.
 
+## Installation
+
+Before you can run the JavaScript code in this repository, you need to have Node.js installed on your machine. If you don't have Node.js installed, you can download it from [here](https://nodejs.org/).
+
+Once you have Node.js installed, you can verify the installation by running the following commands in your terminal:
+
+```bash
+node --version
+npm --version
+```
+
+
+
 ## Guidelines for Using This Repository
 
 1. **Clone the Repository**: Start by cloning this repository to your local machine using `git clone <repository-url>`.
