@@ -3,9 +3,9 @@
 This repository, `jsallnote`, contains comprehensive notes and code snippets for JavaScript. It's a valuable resource for anyone looking to learn or deepen their understanding of JavaScript.
 
 ## Clone this repo
+
 ```
 git clone https://github.com/ardhrubo/Jsallnote-stacklearner.git
-
 ```
 
 ## Installation
