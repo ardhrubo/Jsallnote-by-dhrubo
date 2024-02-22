@@ -21,3 +21,4 @@ let chunk = _.chunk(['a', 'b', 'c', 'd'], 3);
 // => [['a', 'b', 'c'], ['d']]
 
 console.log(chunded,chunk);
+
