@@ -8,3 +8,8 @@ const chunks = collection.chunk(4);
 
 console.log(chunks.all());
 
+cities = ["London",, "",  "Paris",, "Rome"];
+
+cities.forEach(function(value) {
+  console.log(value);
+});
