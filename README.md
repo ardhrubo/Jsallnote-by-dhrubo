@@ -2,6 +2,12 @@
 
 This repository, `jsallnote`, contains comprehensive notes and code snippets for JavaScript. It's a valuable resource for anyone looking to learn or deepen their understanding of JavaScript.
 
+## Clone this repo
+```
+git clone https://github.com/ardhrubo/Jsallnote-stacklearner.git
+
+```
+
 ## Installation
 
 Before you can run the JavaScript code in this repository, you need to have Node.js installed on your machine. If you don't have Node.js installed, you can download it from [here](https://nodejs.org/).
