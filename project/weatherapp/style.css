@@ -14,7 +14,7 @@ html,body{
 #right{
     width: 50%;
     min-height: 100vh;
-    background: rgb(115, 230, 115);
+    background: #df4d5a;
 
 }
 
@@ -24,8 +24,8 @@ html,body{
 }
 #submit{
 margin-left: 7px;
-border: 1px solid #d34848;
+border: 1px solid #f5f7f700;
 border-radius: 5px;
-background: #a1502a;
+background: #0f778a;
 color: #fff;
 }
