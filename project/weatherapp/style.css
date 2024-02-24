@@ -29,3 +29,6 @@ border-radius: 5px;
 background: #0f778a;
 color: #fff;
 }
+#master-history{
+    visibility: hidden;
+}
