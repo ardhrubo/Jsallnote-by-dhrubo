@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    mongoose.connect('mongodb+srv://ardhrubo:4Deh7h7SQq4VW5L1@cluster0.unggjbp.mongodb.net/B');
+    mongoose.connection.on('connected', () => {
+        console.log('Connected to MongoDB');
+    });
 });
 
 
