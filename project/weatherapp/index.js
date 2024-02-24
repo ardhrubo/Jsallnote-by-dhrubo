@@ -16,4 +16,68 @@ const API_KEY = '99aaa584377e96a97dee6770f5e52bf5';
 const BASE_URL = `https://api.openweathermap.org/data/2.5/weather?id=2172797&appid=${API_KEY}`;
 
 
-console.log(BASE_URL)
+const ICON_URL = `http://openweathermap.org/img/wn/`;
+
+
+const DEFAULT_CITY = 'Dhaka,BD';
+
+window.onload = function() {
+    navigator.geolocation.getCurrentPosition(s =>{
+        getWeatherData(null, s.coords);
+    }, e => {
+        getWeatherData();
+    })
+    cityInput.addEventListener('keypress', function(e) {
+        if(e.key === 'Enter') {
+            if(e.target.value) {
+                getWeatherData(e.target.value);
+                e.target.value = '';
+            }else {
+                alert('Please enter a city name');
+            }
+        }
+    })
+}
+
+
+function getWeatherData(city = DEFAULT_CITY, coords) {
+    let url = BASE_URL;
+  city === null ? 
+       url = `${url}&lat=${coords.latitude}&lon=${coords.longitude}` :
+       url =`${url}&q=${city}`;
+     
+     axios.get(url)
+        .then(({data}) => {
+            let weather = {
+                icon: data.weather[0].icon,
+                name: data.name,
+                country: data.sys.country,
+                main:data.weather[0].main,
+                description: data.weather[0].description,
+                temp: data.main.temp,
+                pressure: data.main.pressure,
+                humidity: data.main.humidity
+            }
+            
+          setWeatherData(weather);
+
+        })
+        .catch(error => {
+            alert('City not found');
+        })
+
+}
+
+
+function setWeatherData(weather) {
+    condition.src = `${ICON_URL}${weather.icon}.png`;
+    city.innerHTML = weather.name;
+    country.innerHTML = weather.country;
+    mainText.innerHTML = weather.main;
+    description.innerHTML = weather.description;
+    temp.innerHTML = weather.temp;
+    pressure.innerHTML = weather.pressure;
+    humidity.innerHTML = weather.humidity;
+
+}
+
