@@ -27,6 +27,24 @@ window.onload = function() {
     }, e => {
         getWeatherData();
     })
+
+    axios.get('./api/history')
+    .then( data => {
+        console.log(data);
+        if(data.length > 0) {
+          historyElm.innerHTML = 'new History Found';
+        }else {
+            historyElm.innerHTML = 'No History Found';
+            console.log(data)
+        }
+    })
+    .catch(error => {
+        console.log(error);
+        alert('Error Occurred')
+    })
+
+
+
     cityInput.addEventListener('keypress', function(e) {
         if(e.key === 'Enter') {
             if(e.target.value) {
@@ -38,6 +56,8 @@ window.onload = function() {
         }
     })
 }
+
+
 
 
 function getWeatherData(city = DEFAULT_CITY, coords) {
