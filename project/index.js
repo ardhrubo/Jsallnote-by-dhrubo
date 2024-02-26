@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const app = express();
 
@@ -25,6 +27,6 @@ app.listen(PORT, () => {
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use('/api/history', require('./api/route'));
+app.use('./api/history', require('./api/route'));
 
 

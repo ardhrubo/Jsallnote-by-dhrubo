@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const route = express.Router();
 const History = require('./history');
 
 route.get('/', (req, res) => {
@@ -30,7 +30,7 @@ route.post('/', (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = route;
 
 
 
