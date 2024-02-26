@@ -21,6 +21,7 @@ const ICON_URL = `http://openweathermap.org/img/wn/`;
 
 const DEFAULT_CITY = 'Dhaka,BD';
 
+
 window.onload = function() {
     navigator.geolocation.getCurrentPosition(s =>{
         getWeatherData(null, s.coords);
@@ -74,16 +75,19 @@ function getWeatherData(city = DEFAULT_CITY, coords) {
                 country: data.sys.country,
                 main:data.weather[0].main,
                 description: data.weather[0].description,
-                temp: data.main.temp,
+                // the temparature is given in kelivn so we need to convert it to celsius
+                temp: (data.main.temp-273.15).toFixed(0),
                 pressure: data.main.pressure,
-                humidity: data.main.humidity
+                humidity: data.main.humidity,
+                
             }
-            
+            console.log(weather)
           setWeatherData(weather);
 
         })
         .catch(error => {
             alert('City not found');
+            console.log(error);
         })
 
 }
