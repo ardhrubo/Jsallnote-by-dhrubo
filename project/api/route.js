@@ -15,6 +15,7 @@ route.get('/', (req, res) => {
     });
 });
 
+
 route.post('/', (req, res) => {
     let history = new History(req.body);
     history.save()

@@ -29,8 +29,8 @@ window.onload = function() {
         getWeatherData();
     })
 
-    axios.get('./api/history')
-    .then( data => {
+    axios.get('/api/history')
+    .then( ({data}) => {
         console.log(data);
         if(data.length > 0) {
           historyElm.innerHTML = 'new History Found';
@@ -40,7 +40,7 @@ window.onload = function() {
         }
     })
     .catch(error => {
-        console.log(error);
+        
         alert('Error Occurred')
     })
 
@@ -81,13 +81,13 @@ function getWeatherData(city = DEFAULT_CITY, coords) {
                 humidity: data.main.humidity,
                 
             }
-            console.log(weather)
+          
           setWeatherData(weather);
 
         })
         .catch(error => {
             alert('City not found');
-            console.log(error);
+           
         })
 
 }
