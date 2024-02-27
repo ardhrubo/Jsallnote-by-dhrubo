@@ -1,3 +1,4 @@
+
 const condition = document.getElementById('condition');
 const city = document.getElementById('city');
 const country = document.getElementById('country');
@@ -48,8 +49,18 @@ window.onload = function() {
     cityInput.addEventListener('keypress', function(e) {
         if(e.key === 'Enter') {
             if(e.target.value) {
-                getWeatherData(e.target.value);
-                e.target.value = '';
+                getWeatherData(e.target.value,null,weather => {
+                    e.target.value = '';
+                    axios.post('/api/history',weather)
+                    .then(({data}) => {
+                        updateHistory(data);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        alert('Error Occurred');
+                    })
+                });
+               
             }else {
                 alert('Please enter a city name');
             }
@@ -60,7 +71,7 @@ window.onload = function() {
 
 
 
-function getWeatherData(city = DEFAULT_CITY, coords) {
+function getWeatherData(city = DEFAULT_CITY, coords,cb) {
     let url = BASE_URL;
   city === null ? 
        url = `${url}&lat=${coords.latitude}&lon=${coords.longitude}` :
@@ -82,6 +93,7 @@ function getWeatherData(city = DEFAULT_CITY, coords) {
             }
           
           setWeatherData(weather);
+          if(cb) cb(weather);
 
         })
         .catch(error => {
@@ -114,7 +126,13 @@ function updateHistory(history) {
         tempHistory.id = '';
         tempHistory.getElementsByClassName('condition')[0].src = `${ICON_URL}${h.icon}.png`;
         tempHistory.getElementsByClassName('city')[0].innerHTML = h.name;
-        tempHistory.getElementsByClassName('countr')
+        tempHistory.getElementsByClassName('country')[0].innerHTML = h.country;
+        tempHistory.getElementsByClassName('main')[0].innerHTML= h.main;
+        tempHistory.getElementsByClassName('description')[0] = h.description;
+        tempHistory.getElementsByClassName('temp')[0].innerHTML = h.temp;
+        tempHistory.getElementsByClassName('pressure')[0].innerHTML = h.pressure;
+        tempHistory.getElementsByClassName('humidity')[0].innerHTML = h.humidity;
+        historyElm.appendChild(tempHistory);
     })
 
 
