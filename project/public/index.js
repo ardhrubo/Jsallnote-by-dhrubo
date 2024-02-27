@@ -31,9 +31,8 @@ window.onload = function() {
 
     axios.get('/api/history')
     .then( ({data}) => {
-        console.log(data);
         if(data.length > 0) {
-          historyElm.innerHTML = 'new History Found';
+            updateHistory(data);
         }else {
             historyElm.innerHTML = 'No History Found';
             console.log(data)
@@ -104,4 +103,21 @@ function setWeatherData(weather) {
     humidity.innerHTML = weather.humidity;
 
 }
+
+
+function updateHistory(history) {
+
+    historyElm.innerHTML = ''
+    history = history.reverse();
+    history.forEach(h =>{
+        let tempHistory = masterHistory.cloneNode(true);
+        tempHistory.id = '';
+        tempHistory.getElementsByClassName('condition')[0].src = `${ICON_URL}${h.icon}.png`;
+        tempHistory.getElementsByClassName('city')[0].innerHTML = h.name;
+        tempHistory.getElementsByClassName('countr')
+    })
+
+
+}
+
 
